@@ -192,13 +192,19 @@
                         <h2 className="text-3xl font-black text-center mb-1 tracking-tight text-slate-900">FinTrack Pro</h2>
                         <p className="text-slate-400 text-center mb-10 font-bold text-[10px] tracking-widest uppercase">Private Cloud Vault</p>
                         <form onSubmit={handleAuth} className="space-y-4">
-                            <input type="email" placeholder="Email Address" required className="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold focus:ring-2 focus:ring-indigo-500 transition-all" onChange={e => setAuthData({...authData, email: e.target.value})} />
-                            <input type="password" placeholder="Password" required className="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold focus:ring-2 focus:ring-indigo-500 transition-all" onChange={e => setAuthData({...authData, password: e.target.value})} />
-                            {error && <div className="p-4 bg-red-50 text-red-600 text-[10px] font-bold rounded-xl border border-red-100 uppercase tracking-tight">{error}</div>}
-                            <button disabled={isSubmitting} className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black shadow-xl active:scale-95 transition-all">
-                                {isSubmitting ? '...' : (authMode === 'login' ? 'SIGN IN' : 'CREATE ACCOUNT')}
-                            </button>
-                        </form>
+  <input type="email" placeholder="Email Address" required className="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold focus:ring-2 focus:ring-indigo-500 transition-all" onChange={e => setAuthData({...authData, email: e.target.value})} />
+  <input type="password" placeholder="Password" required className="w-full p-4 bg-slate-50 rounded-2xl outline-none font-bold focus:ring-2 focus:ring-indigo-500 transition-all" onChange={e => setAuthData({...authData, password: e.target.value})} />
+
+  <p className="text-[9px] text-slate-400 font-bold uppercase tracking-widest text-center">
+    For access issues, contact administrator
+  </p>
+
+  {error && <div className="p-4 bg-red-50 text-red-600 text-[10px] font-bold rounded-xl border border-red-100 uppercase tracking-tight">{error}</div>}
+  <button disabled={isSubmitting} className="w-full bg-slate-900 text-white py-5 rounded-2xl font-black shadow-xl active:scale-95 transition-all">
+    {isSubmitting ? '...' : (authMode === 'login' ? 'SIGN IN' : 'CREATE ACCOUNT')}
+  </button>
+</form>
+                        
                         <button onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')} className="w-full mt-6 text-[10px] text-indigo-600 font-black uppercase tracking-widest">
                             {authMode === 'login' ? 'New User? Apply Here' : 'Back to Login'}
                         </button>
